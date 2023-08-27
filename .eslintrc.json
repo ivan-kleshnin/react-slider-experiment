@@ -1,0 +1,39 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/stylistic"
+  ],
+  "rules": {
+    "comma-spacing": "off",
+    "no-constant-condition": "off",
+    "no-empty": "off",
+    "no-prototype-builtins": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-extra-semi": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/prefer-function-type": "off",
+    "@typescript-eslint/no-unused-vars": ["error",
+      {"argsIgnorePattern": "^_", "varsIgnorePattern": "^_"}
+    ],
+    "@typescript-eslint/ban-types": ["error", {
+      "types": {
+        "{}": false,
+        "Function": false
+      },
+      "extendDefaults": true
+    }]
+  },
+  "ignorePatterns": [
+    "app-search/",
+    "ignore/",
+    "node_modules/"
+  ]
+}

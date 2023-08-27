@@ -1,0 +1,11 @@
+.idea/
+.deploy/
+ignore/
+node_modules/
+.DS_Store
+.env.*
+/dump.rdb
+data/
+__pycache__/
+environment.lock.yml
+tsconfig.tsbuildinfo

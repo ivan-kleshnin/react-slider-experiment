@@ -1,0 +1,31 @@
+{
+  "name": "react-slider-experiment",
+  "version": "1.0.0",
+  "author": "Ivan Kleshnin <ivan@paqmind.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@total-typescript/ts-reset": "^0.5.1",
+    "@tsconfig/node18": "^18.2.0",
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/node": "^20.5.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "^8.47.0",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "imports": {
+    "#internal/*": "./*"
+  }
+}
