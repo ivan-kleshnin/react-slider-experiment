@@ -10,29 +10,4 @@
   #__next {
     isolation: isolate;
   }
-
-  strong, b {
-    @apply font-semibold;
-  }
-
-  button:disabled {
-    @apply cursor-not-allowed;
-  }
-}
-
-@layer components {
-  .shell-3r {
-    @apply grid;
-    grid-template-rows: auto auto 1fr;
-  }
-  .shell-2c {
-    @apply grid gap-10;
-    grid-template-columns: minmax(12rem, 20%) 1fr;
-  }
-}
-
-@layer utilities {
-  .small-caps {
-    font-variant: small-caps;
-  }
 }
