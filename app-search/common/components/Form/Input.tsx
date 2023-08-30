@@ -1,5 +1,5 @@
 import {ExclamationCircleIcon} from "@heroicons/react/20/solid"
-import {FocusEvent, forwardRef} from "react"
+import {ChangeEventHandler, FocusEventHandler, forwardRef, memo} from "react"
 import {twMerge} from "tailwind-merge"
 
 // Notes: no left/right icon support
@@ -12,16 +12,16 @@ export type InputProps = {
   max?: string | number
   min?: string | number
   name: string
-  onChange?: any
-  onFocus?: (event: FocusEvent<unknown>) => void
-  onBlur?: (event: FocusEvent<unknown>) => void
+  onChange?: ChangeEventHandler<HTMLInputElement>
+  onFocus?: FocusEventHandler<HTMLInputElement>
+  onBlur?: FocusEventHandler<HTMLInputElement>
   pattern?: string
   placeholder?: string
   type?: string
   value?: string
 }
 
-export const Input = forwardRef(function Input(props: InputProps, ref: any) {
+export const Input = memo(forwardRef<HTMLInputElement, InputProps>(function Input(props, ref) {
   const {
     defaultValue,
     id,
@@ -71,10 +71,10 @@ export const Input = forwardRef(function Input(props: InputProps, ref: any) {
       value={value}
     />
   )
-})
+}))
 
 // ErrorIcon
-export function ErrorIcon() {
+export const ErrorIcon = memo(function ErrorIcon() {
   return (
     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
       <ExclamationCircleIcon
@@ -82,4 +82,4 @@ export function ErrorIcon() {
       />
     </div>
   )
-}
+})

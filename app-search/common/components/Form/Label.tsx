@@ -1,5 +1,10 @@
-import {ReactNode} from "react"
+import {memo, ReactNode} from "react"
 import {twMerge} from "tailwind-merge"
+
+/*
+  Label component is used in forms (rerenders often) so it's memoized despite small VDOM size.
+  The page is not gonna have too many such elements so the cost of +few extra pointers is negligible
+*/
 
 // Label
 export type LabelProps = {
@@ -8,7 +13,7 @@ export type LabelProps = {
   children: ReactNode
 }
 
-export function Label(props: LabelProps) {
+export const Label = memo(function Label(props: LabelProps) {
   const {className, htmlFor, children} = props
 
   return (
@@ -19,4 +24,4 @@ export function Label(props: LabelProps) {
       {children}
     </label>
   )
-}
+})

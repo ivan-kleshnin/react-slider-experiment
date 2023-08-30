@@ -1,0 +1,34 @@
+.slider input[type="range"]::range-thumb {
+  @apply appearance-none cursor-pointer pointer-events-auto;
+  @apply h-4 w-4 bg-purple-500 ring-1 ring-purple-500 rounded-full;
+}
+
+/* TODO openLeftRange not supported yet */
+.slider :global input.openRightRange[type="range"]::range-thumb {
+  @apply bg-transparent ring-0 rounded-sm;
+  @apply w-0 h-0;
+  border: 10px solid transparent;
+  @apply border-l-purple-500;
+  transform: translate(11px);
+  /*
+    position: relative;
+    right: -10px;
+    ^ positioning does not work in Firefox https://bugzilla.mozilla.org/show_bug.cgi?id=1663819
+  */
+}
+
+/*For some reason the square gets 18px instead of 20px in Firefox. Below is the hack to fix it:*/
+@supports (-moz-transform: translate(0, 0)) {
+  .slider :global input.openRightRange[type="range"]::range-thumb {
+    transform: translate(11px) scale(1.1);
+  }
+}
+
+.slider :global input[type="range"]:not(.openRightRange):active::range-thumb {
+  @apply bg-white ring-2 ring-purple-500;
+}
+
+/* Seems to have no effect: */
+.slider input[type="range"]::range-track {
+  @apply appearance-none;
+}

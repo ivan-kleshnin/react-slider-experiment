@@ -4,15 +4,16 @@ import {ErrorIcon, Input, InputProps} from "./Input"
 import {Label} from "./Label"
 
 // TextInput
-export type TextInputProps = InputProps & {
+export type TextInputProps = Omit<InputProps, "id" | "type"> & {
+  formId: string
   label?: ReactNode
 }
 
-export const TextInput = memo(forwardRef(function TextInput(props: TextInputProps, ref: any) {
+export const TextInput = memo(forwardRef<HTMLInputElement, TextInputProps>(function TextInput(props, ref) {
   const {
     defaultValue,
     error,
-    id = props.name,
+    formId,
     label,
     name,
     onChange,
@@ -24,13 +25,13 @@ export const TextInput = memo(forwardRef(function TextInput(props: TextInputProp
 
   return <div>
     {label &&
-      <Label htmlFor={id}>{label}</Label>
+      <Label htmlFor={formId + "." + name}>{label}</Label>
     }
     <div className={twMerge("rounded-md shadow-sm", label ? "mt-2" : "")}>
       <Input
         defaultValue={defaultValue}
         error={error}
-        id={id}
+        id={formId + "." + name}
         name={name}
         onChange={onChange}
         onFocus={onFocus}

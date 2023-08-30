@@ -1,3 +1,3 @@
 export * from "./Label"
-export * from "./Textarea"
+export * from "./Slider2"
 export * from "./TextInput"
